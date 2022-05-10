@@ -1,24 +1,27 @@
 import { useState } from 'react';
 
 export const Formulario = () => {
+  //
   const [usuario, setUsuario] = useState({});
 
   const enviarDatos = (e) => {
     e.preventDefault();
+    const { nombre, apellido, genero, bio } = e.target;
     const usuarioNuevo = {
-      nombre: e.target.nombre.value,
-      apellido: e.target.apellido.value,
-      genero: e.target.genero.value,
-      bio: e.target.bio.value,
+      nombre: nombre.value,
+      apellido: apellido.value,
+      genero: genero.value,
+      bio: bio.value,
     };
     setUsuario(usuarioNuevo);
   };
 
-  const cambarDatos = (e) => {
+  const cambarDatos = ({ target }) => {
+    const { name, value } = target;
     // let usuarioNuevo = { ...usuario };
-    // usuarioNuevo[e.target.name] = e.target.value;
+    // usuarioNuevo[name] = value;
     // setUsuario(usuarioNuevo);
-    setUsuario((user) => ({ ...user, [e.target.name]: e.target.value }));
+    setUsuario((user) => ({ ...user, [name]: value }));
   };
 
   return (
