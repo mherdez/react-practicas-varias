@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import './Formulario.css';
 
 export const Formulario = () => {
   //
@@ -18,10 +19,10 @@ export const Formulario = () => {
 
   const cambarDatos = ({ target }) => {
     const { name, value } = target;
-    // let usuarioNuevo = { ...usuario };
-    // usuarioNuevo[name] = value;
-    // setUsuario(usuarioNuevo);
-    setUsuario((user) => ({ ...user, [name]: value }));
+    let usuarioNuevo = { ...usuario };
+    usuarioNuevo[name] = value;
+    setUsuario(usuarioNuevo);
+    // setUsuario((user) => ({ ...user, [name]: value }));
   };
 
   return (
@@ -48,7 +49,7 @@ export const Formulario = () => {
         </select>
         <input
           type='textarea'
-          placeholder='Biografía.'
+          placeholder='Biografía'
           name='bio'
           onChange={cambarDatos}
         />
